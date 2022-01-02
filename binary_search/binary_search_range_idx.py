@@ -1,5 +1,5 @@
 """
-Lesson 1 - Binary Search - Find Range of Index for a Target
+Binary Search - Find Range of Index for a Target
 
 Input
 ---------
@@ -84,8 +84,6 @@ def locate_end_idx(nums, target):
 			low = mid + 1
 
 	return -1
-
-
 
 
 # define test cases
@@ -177,7 +175,7 @@ TEST_DEF = {
 	# region large_list
 	'large_list': {
 		'input': {
-			'nums': list(range(0, 10000001, 1)) + ([10000001]*20) + [10000002, 10000003, 10000004, 10000005],
+			'nums': list(range(0, 10000001, 1)) + ([10000001] * 20) + [10000002, 10000003, 10000004, 10000005],
 			'target': 10000001
 		},
 		'output': {

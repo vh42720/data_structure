@@ -1,5 +1,5 @@
 """
-Lesson 1 - Binary Search - Find Index of Target from Rotated List
+Binary Search - Find Index of Target from Rotated List
 
 Input
 ---------
@@ -146,6 +146,7 @@ def main():
 	# all cases
 	for test_case, test_dict in TEST_DEF.items():
 		evaluate_test_case(find_position, test_case)
+
 
 if __name__ == '__main__':
 	main()

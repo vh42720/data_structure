@@ -1,5 +1,5 @@
 """
-Lesson 1 - Binary Search
+Binary Search Fundamentals
 
 Input
 ---------

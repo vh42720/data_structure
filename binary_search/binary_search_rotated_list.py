@@ -1,5 +1,5 @@
 """
-Lesson 1 - Binary Search - Find Number of Rotation of a Rotated List
+Binary Search - Find Number of Rotation of a Rotated List
 
 Input
 ---------
@@ -127,11 +127,12 @@ TEST_DEF = {
 
 def main():
 	# single test
-	evaluate_test_case(find_rotations, test_case='repeated_numbers')
+	# evaluate_test_case(find_rotations, test_case='repeated_numbers')
 
 	# all cases
-	# for test_case, test_dict in TEST_DEF.items():
-	# 	evaluate_test_case(find_rotations, test_case)
+	for test_case, test_dict in TEST_DEF.items():
+		evaluate_test_case(find_rotations, test_case)
+
 
 if __name__ == '__main__':
 	main()
