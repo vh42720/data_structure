@@ -16,16 +16,18 @@ If multiple queries => return the first occurrence
 
 Algorithm
 ---------
-Linear Search Algorithm
-Binary Search Algorithm
+Linear Search Algorithm - Time complexity: O(N) and Space complexity: O(1)
+Binary Search Algorithm - Time complexity: O(log N) and Space complexity: O(1)
 
 """
 
 import timeit
 
 
-def evaluate_test_case(locate_card_func, test_case):
-	print('Input:', TEST_DEF[test_case]['input'])
+def evaluate_test_case(locate_card_func, test_case, show_input=True):
+	"""Evaluate and print results"""
+	if show_input:
+		print('Input:', TEST_DEF[test_case]['input'])
 	print('Expected Output:', expected_output := TEST_DEF[test_case]['output'])
 
 	start = timeit.default_timer()
@@ -57,7 +59,24 @@ def locate_card_linear(cards, query):
 
 def locate_card_binary_search(cards, query):
 	"""Binary Search Algorithm"""
-	pass
+	low, high = 0, len(cards) - 1
+
+	while low <= high:
+		# find mid index
+		mid = (low + high) // 2
+		mid_num = cards[mid]
+
+		if mid_num == query:
+			if mid - 1 >= 0 and cards[mid - 1] == query:
+				high = mid - 1
+			else:
+				return mid
+		elif mid_num < query:
+			high = mid - 1
+		elif mid_num > query:
+			low = mid + 1
+
+	return -1
 
 
 # define test cases
@@ -134,13 +153,29 @@ TEST_DEF = {
 		'output': 2
 	},
 	# endregion
+	# region large_list
+	'large_list': {
+		'input': {
+			'cards': list(range(10000000, 0, -1)),
+			'query': 2
+		},
+		'output': 9999998
+	},
+	# endregion
 }
 
 
-def main(case='general'):
-	# evaluate_test_case(locate_card_linear, test_case=case)
-	for test_case, test_dict in TEST_DEF.items():
-		evaluate_test_case(locate_card_linear, test_case)
+def main():
+	# single test
+	# evaluate_test_case(locate_card_linear, test_case='general')
+
+	# compare linear vs binary search
+	evaluate_test_case(locate_card_linear, test_case='large_list', show_input=False)
+	evaluate_test_case(locate_card_binary_search, test_case='large_list', show_input=False)
+
+	# all cases
+	# for test_case, test_dict in TEST_DEF.items():
+	# 	evaluate_test_case(locate_card_binary_search, test_case)
 
 
 if __name__ == '__main__':
