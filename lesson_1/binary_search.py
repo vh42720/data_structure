@@ -26,6 +26,8 @@ import timeit
 
 def evaluate_test_case(locate_card_func, test_case, show_input=True):
 	"""Evaluate and print results"""
+	print('Test case:', test_case)
+
 	if show_input:
 		print('Input:', TEST_DEF[test_case]['input'])
 	print('Expected Output:', expected_output := TEST_DEF[test_case]['output'])

@@ -1,5 +1,5 @@
 """
-Lesson 1 - Binary Search Examples
+Lesson 1 - Binary Search - Find Range of Index for a Target
 
 Input
 ---------
@@ -18,6 +18,8 @@ import timeit
 
 def evaluate_test_case(locate_start_idx_func, locate_end_idx_func, test_case, show_input=True):
 	"""Evaluate and print results"""
+	print('Test case:', test_case)
+
 	if show_input:
 		print('Input:', TEST_DEF[test_case]['input'])
 	print('Expected Output:', expected_output := TEST_DEF[test_case]['output'])
